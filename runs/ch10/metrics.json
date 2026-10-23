@@ -1,0 +1,21 @@
+{
+  "chapter": 10,
+  "steps": 300,
+  "device": "cpu",
+  "parameters": 66,
+  "before": {
+    "loss": 1.4406607151031494,
+    "score_equivalence_error": 5.960464477539063e-08,
+    "output_equivalence_error": 7.450580596923828e-09,
+    "note": "Low-rank contents only; no RoPE or full DeepSeek MLA reproduction."
+  },
+  "after": {
+    "loss": 6.47879838666654e-09,
+    "score_equivalence_error": 2.384185791015625e-07,
+    "output_equivalence_error": 5.960464477539063e-08,
+    "note": "Low-rank contents only; no RoPE or full DeepSeek MLA reproduction."
+  },
+  "parameter_update": true,
+  "reload_check": "PASS",
+  "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+}

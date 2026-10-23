@@ -1,0 +1,395 @@
+{
+  "edition": "首版书稿 2026-10-23",
+  "title": "从张量到世界：Transformer、语言模型与多模态智能",
+  "artifact_checks": {
+    "status": "PASS",
+    "pdf_pages": 138,
+    "main_chapters": 17,
+    "appendices": 3,
+    "vector_figures": 24,
+    "chapter_labs": 17,
+    "markdown_characters": 119272,
+    "chinese_characters": 66723,
+    "offline_html_anchors_valid": true,
+    "external_raster_dependencies": false,
+    "pdf_text_on_every_page": true,
+    "visual_qa": "All 138 final pages reviewed in contact sheets; training/result/command pages also reviewed at full reading resolution."
+  },
+  "execution_environment": {
+    "platform": "macOS 26.4 arm64",
+    "python": "3.12.14",
+    "torch": "2.14.1",
+    "numpy": "2.5.4",
+    "Pillow": "13.0.0",
+    "training_device": "cpu",
+    "cuda_available": false,
+    "target_reader_hardware": "RTX 3090 24 GB",
+    "cuda_runtime_tested": false
+  },
+  "framework_tests": {
+    "status": "PASS",
+    "command": "python -m tinyomni.tests",
+    "tests_run": 11,
+    "cases": [
+      "test_optimizer_step_is_real_and_finite",
+      "test_non_finite_loss_prevents_update",
+      "test_checkpoint_roundtrip_and_optimizer_state",
+      "test_future_decoder_input_cannot_change_earlier_logits",
+      "test_heads_and_generation_do_not_read_ground_truth",
+      "test_invalid_action_targets_are_not_scored",
+      "test_training_validation_seed_domains_and_streams",
+      "test_evaluate_only_does_not_rewrite_checkpoint",
+      "test_exported_media_contains_real_output",
+      "test_local_http_health_inference_and_validation",
+      "test_incomplete_http_body_times_out_and_health_recovers"
+    ],
+    "coverage_note": "Checkpoint/optimizer restore, no future-label leakage, no teacher-forcing leakage into continuous heads, action masks, finite gradients, media exports, distinct RNG domains, evaluate-only does not rewrite weights, localhost HTTP and partial-body timeout."
+  },
+  "numerical_verification": {
+    "status": "PASS",
+    "attention_weights": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.3302384506733431,
+        0.6697615493266569,
+        0.0
+      ],
+      [
+        0.2482550782577231,
+        0.2482550782577231,
+        0.5034898434845538
+      ]
+    ],
+    "attention_output": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.3302384506733431,
+        1.3395230986533138
+      ],
+      [
+        1.7587246087113846,
+        1.0
+      ]
+    ],
+    "gpt2_small_parameters": 124439808,
+    "gpt2_block_parameters": 7087872,
+    "mha_cache_GiB": 4.0,
+    "gqa_cache_GiB": 1.0,
+    "mla_cache_GiB": 2.14453125,
+    "expanded_mla_cache_GiB": 122.23828125,
+    "mla_example_weights": [
+      [
+        0.028317918542645707,
+        0.9716820814573542
+      ]
+    ],
+    "grpo_advantage": [
+      1.7320508075688774,
+      -0.5773502691896258,
+      -0.5773502691896258,
+      -0.5773502691896258
+    ],
+    "clip_row_probabilities": [
+      [
+        0.8437947344813395,
+        0.11419519938459449,
+        0.04201006613406605
+      ],
+      [
+        0.04201006613406606,
+        0.8437947344813396,
+        0.1141951993845945
+      ],
+      [
+        0.11419519938459449,
+        0.04201006613406605,
+        0.8437947344813395
+      ]
+    ],
+    "tiny_decoder": {
+      "status": "PASS",
+      "logits_shape": [
+        2,
+        5,
+        16
+      ],
+      "cache_per_layer_shape": [
+        2,
+        2,
+        5,
+        4
+      ],
+      "max_full_vs_cached_error": 3.608224830031759e-16,
+      "random_model_next_token_loss": 2.690412581826685,
+      "checks": [
+        "full versus one-token cached forward",
+        "prefill followed by chunked cached forward",
+        "future token cannot change earlier logits"
+      ]
+    }
+  },
+  "mechanism_training_experiments": [
+    {
+      "chapter": 1,
+      "steps": 300,
+      "parameters": 6,
+      "before_loss": 3.7249412536621094,
+      "after_loss": 0.0030947683844715357,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 2,
+      "steps": 300,
+      "parameters": 64,
+      "before_loss": 2.9239931106567383,
+      "after_loss": 0.2321038842201233,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 3,
+      "steps": 300,
+      "parameters": 194,
+      "before_loss": 0.6783798336982727,
+      "after_loss": 0.00018049996288027614,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 4,
+      "steps": 300,
+      "parameters": 17410,
+      "before_loss": 0.7225621342658997,
+      "after_loss": 4.304753019823693e-06,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 5,
+      "steps": 300,
+      "parameters": 27776,
+      "before_loss": 27.63725471496582,
+      "after_loss": 4.988139153283555e-06,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 6,
+      "steps": 300,
+      "parameters": 27776,
+      "before_loss": 27.63725471496582,
+      "after_loss": 4.988139153283555e-06,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 7,
+      "steps": 300,
+      "parameters": 27776,
+      "before_loss": 27.63725471496582,
+      "after_loss": 4.988139153283555e-06,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 8,
+      "steps": 300,
+      "parameters": 322,
+      "before_loss": 3.049299716949463,
+      "after_loss": 0.028811026364564896,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 9,
+      "steps": 300,
+      "parameters": 272,
+      "before_loss": 3.836825132369995,
+      "after_loss": 0.34792882204055786,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 10,
+      "steps": 300,
+      "parameters": 66,
+      "before_loss": 1.4406607151031494,
+      "after_loss": 6.47879838666654e-09,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    },
+    {
+      "chapter": 11,
+      "steps": 300,
+      "parameters": 4298,
+      "before_loss": 2.3293588161468506,
+      "after_loss": 0.0006805711309425533,
+      "parameter_update": true,
+      "reload_check": "PASS"
+    }
+  ],
+  "tinyomni": {
+    "parameters": 352281,
+    "training_steps": 1000,
+    "batch_size": 32,
+    "seed": 42,
+    "initial_batch_total_loss": 5.421418190002441,
+    "final_batch_total_loss": 0.023297475650906563,
+    "loss_comparison_note": "First and final values use different random minibatches. See validation for model quality.",
+    "validation_samples_per_task": 256,
+    "final_evaluation": {
+      "generation": {
+        "text": {
+          "samples": 256,
+          "token_count": 1024,
+          "token_accuracy": 1.0,
+          "exact_match": 1.0,
+          "image_mse": 0.00014823525816609617,
+          "audio_mse": 0.001980739922146313,
+          "action_mse": 0.0002474085376888979,
+          "image_samples": 256,
+          "audio_samples": 256,
+          "action_samples": 256,
+          "masked_modality": null
+        },
+        "image": {
+          "samples": 256,
+          "token_count": 1024,
+          "token_accuracy": 0.99609375,
+          "exact_match": 0.984375,
+          "image_mse": 0.00027122026949655265,
+          "audio_mse": 0.0023258138389792293,
+          "action_mse": null,
+          "image_samples": 256,
+          "audio_samples": 256,
+          "action_samples": 0,
+          "masked_modality": null
+        },
+        "audio": {
+          "samples": 256,
+          "token_count": 1024,
+          "token_accuracy": 0.9931640625,
+          "exact_match": 0.97265625,
+          "image_mse": 0.0008704016290721484,
+          "audio_mse": 0.00126221556274686,
+          "action_mse": null,
+          "image_samples": 256,
+          "audio_samples": 256,
+          "action_samples": 0,
+          "masked_modality": null
+        },
+        "video": {
+          "samples": 256,
+          "token_count": 1024,
+          "token_accuracy": 0.99609375,
+          "exact_match": 0.984375,
+          "image_mse": 0.0003859861317323521,
+          "audio_mse": 0.0028551748546306044,
+          "action_mse": 0.00036589158116839826,
+          "image_samples": 256,
+          "audio_samples": 256,
+          "action_samples": 256,
+          "masked_modality": null
+        },
+        "mixed": {
+          "samples": 256,
+          "token_count": 1024,
+          "token_accuracy": 0.994140625,
+          "exact_match": 0.9765625,
+          "image_mse": 0.0004866994504482136,
+          "audio_mse": 0.0018572446570033208,
+          "action_mse": 0.0004066131598726436,
+          "image_samples": 256,
+          "audio_samples": 256,
+          "action_samples": 143,
+          "masked_modality": null
+        }
+      },
+      "ablations": {
+        "image": {
+          "normal": {
+            "samples": 256,
+            "token_count": 1024,
+            "token_accuracy": 0.9921875,
+            "exact_match": 0.96875,
+            "image_mse": 0.0003533179642545292,
+            "audio_mse": 0.002252634847536683,
+            "action_mse": null,
+            "image_samples": 256,
+            "audio_samples": 256,
+            "action_samples": 0,
+            "masked_modality": null
+          },
+          "masked": {
+            "samples": 256,
+            "token_count": 1024,
+            "token_accuracy": 0.6650390625,
+            "exact_match": 0.109375,
+            "image_mse": 0.03167651453986764,
+            "audio_mse": 0.17596297897398472,
+            "action_mse": null,
+            "image_samples": 256,
+            "audio_samples": 256,
+            "action_samples": 0,
+            "masked_modality": "image"
+          },
+          "token_accuracy_drop": 0.3271484375,
+          "exact_match_drop": 0.859375,
+          "note": "identical synthetic examples; zero modality tensor and set its presence=False"
+        },
+        "audio": {
+          "normal": {
+            "samples": 256,
+            "token_count": 1024,
+            "token_accuracy": 0.9951171875,
+            "exact_match": 0.98046875,
+            "image_mse": 0.0009266361594200134,
+            "audio_mse": 0.0012756057258229703,
+            "action_mse": null,
+            "image_samples": 256,
+            "audio_samples": 256,
+            "action_samples": 0,
+            "masked_modality": null
+          },
+          "masked": {
+            "samples": 256,
+            "token_count": 1024,
+            "token_accuracy": 0.64453125,
+            "exact_match": 0.09375,
+            "image_mse": 0.03212694055400789,
+            "audio_mse": 0.16697430796921253,
+            "action_mse": null,
+            "image_samples": 256,
+            "audio_samples": 256,
+            "action_samples": 0,
+            "masked_modality": "audio"
+          },
+          "token_accuracy_drop": 0.3505859375,
+          "exact_match_drop": 0.88671875,
+          "note": "identical synthetic examples; zero modality tensor and set its presence=False"
+        }
+      },
+      "seed_scheme": "uint64-domain-v1: train high bit 0, validation high bit 1",
+      "validation_base_seed": 9223372036854775850
+    },
+    "custom_input_runs": [
+      "custom-text",
+      "custom-image",
+      "custom-audio"
+    ],
+    "scope": "18 synthetic semantic combinations, 16x16 images, 256-sample tones, controlled attribute tokens. Results measure new perturbations, not unseen combinations, natural language, natural speech or real photographs."
+  },
+  "sha256": {
+    "pdf": "948d90f4b7a74240c177afc17a5863d6d17672197257cae164e34b1c42429b4e",
+    "html": "b1364100ab988d5391322b9da7add1a94875f76ac5e9330d651eb2b523575809",
+    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745"
+  }
+}

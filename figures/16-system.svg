@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="345" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 345" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="345"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-345)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="700" height="345" rx="14" ry="14" style="stroke: rgb(87%,90%,93%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="315" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 22px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,630) scale(1,-1)">端到端系统：每个接口都需要可验证的约定</text>
+			<text x="24" y="291" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,582) scale(1,-1)">模型正确连接，并不自动意味着任务可靠完成</text>
+			<rect x="25" y="156" width="194" height="82" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="82.0" y="211" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,422) scale(1,-1)">采集与对齐</text>
+			<text x="84.082275390625" y="187" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,374) scale(1,-1)">时间戳 / 坐标</text>
+			<path d="M 221,197 L 244,197 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="244 197, 236.9473 193.2238, 236.9473 200.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<rect x="254" y="156" width="194" height="82" rx="7" ry="7" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="311.0" y="211" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,422) scale(1,-1)">表示与决策</text>
+			<text x="306.582275390625" y="187" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,374) scale(1,-1)">形状 / 模型版本</text>
+			<path d="M 450,197 L 473,197 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="473 197, 465.9473 193.2238, 465.9473 200.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<rect x="483" y="156" width="194" height="82" rx="7" ry="7" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="540.0" y="211" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,422) scale(1,-1)">输出与执行</text>
+			<text x="538.82275390625" y="187" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,374) scale(1,-1)">schema / 单位</text>
+			<rect x="253" y="35" width="210" height="64" rx="7" ry="7" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="294.0" y="72" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,144) scale(1,-1)">验证、日志与反馈</text>
+			<text x="299.5" y="48" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,96) scale(1,-1)">分层评测、错误归因</text>
+			<path d="M 580,155 L 580,68 Z" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 580,68 L 469,68 Z" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="469 68, 476.0527 71.77624, 476.0527 64.22376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(80%,43%,17%); fill-rule: evenodd;"/>
+			<path d="M 252,68 L 120,68 Z" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 120,68 L 120,149 Z" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="120 149, 123.7762 141.9473, 116.2238 141.9473" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,50%); fill-rule: evenodd;"/>
+		</g>
+	</g>
+</svg>

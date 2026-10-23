@@ -1,0 +1,6 @@
+{
+  "predicted": null,
+  "synthetic_ground_truth": null,
+  "target_is_observable": false,
+  "interface": "4-step normalized 2D teaching trajectory; not a robot command"
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="365" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 365" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="365"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-365)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="700" height="365" rx="14" ry="14" style="stroke: rgb(87%,90%,93%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="335" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 22px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,670) scale(1,-1)">GPT-2 small：一条完整的前向路径</text>
+			<text x="24" y="311" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,622) scale(1,-1)">固定标本：12层、D=768、12头、V=50257、上下文1024</text>
+			<rect x="22" y="198" width="200" height="74" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="89.98046875" y="245" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,490) scale(1,-1)">token ids</text>
+			<text x="108.2763671875" y="221" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,442) scale(1,-1)">[B,T]</text>
+			<rect x="250" y="198" width="200" height="74" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="300.8828125" y="245" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,490) scale(1,-1)">词嵌入 + 位置</text>
+			<text x="323.62548828125" y="221" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,442) scale(1,-1)">[B,T,768]</text>
+			<rect x="478" y="198" width="200" height="74" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="526.64453125" y="245" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,490) scale(1,-1)">12 × Pre-LN块</text>
+			<text x="551.62548828125" y="221" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,442) scale(1,-1)">[B,T,768]</text>
+			<path d="M 223,234 L 242,234 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="242 234, 234.9473 230.2238, 234.9473 237.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<path d="M 450,234 L 470,234 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="470 234, 462.9473 230.2238, 462.9473 237.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<rect x="478" y="59" width="200" height="74" rx="7" ry="7" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="522.43359375" y="106" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,212) scale(1,-1)">最终LayerNorm</text>
+			<text x="551.62548828125" y="82" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,164) scale(1,-1)">[B,T,768]</text>
+			<rect x="250" y="59" width="200" height="74" rx="7" ry="7" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="327.33203125" y="106" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,212) scale(1,-1)">乘 E.T</text>
+			<text x="315.662353515625" y="82" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,164) scale(1,-1)">[768,50257]</text>
+			<rect x="22" y="59" width="200" height="74" rx="7" ry="7" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="87.32421875" y="106" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,212) scale(1,-1)">词表logits</text>
+			<text x="88.3955078125" y="82" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,164) scale(1,-1)">[B,T,50257]</text>
+			<path d="M 577,197 L 577,141 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="577 141, 573.2238 148.0527, 580.7762 148.0527" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<path d="M 477,95 L 459,95 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="459 95, 466.0527 98.77624, 466.0527 91.22376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<path d="M 248,95 L 230,95 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="230 95, 237.0527 98.77624, 237.0527 91.22376" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<path d="M 350,197 L 350,158 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6; stroke-dasharray: 4, 3;"/>
+			<path d="M 350,158 L 350,141 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6; stroke-dasharray: 4, 3;"/>
+			<polygon points="350 141, 346.2238 148.0527, 353.7762 148.0527" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,57%); fill-rule: evenodd;"/>
+			<text x="367" y="164" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 12px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,328) scale(1,-1)">共享E</text>
+			<text x="25" y="21" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,42) scale(1,-1)">输出绑定词嵌入参数；token轴T在整条主路径上保持。</text>
+		</g>
+	</g>
+</svg>

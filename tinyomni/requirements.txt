@@ -1,0 +1,7 @@
+# Install a CUDA-enabled PyTorch build appropriate for your system when using RTX 3090.
+# Pillow supports user-supplied images in custom_infer; export/serving uses stdlib.
+# Tested: Python 3.12, torch 2.14.1, numpy 2.5.4, Pillow 13.0.0.
+# Version ranges are not a tested compatibility matrix; run the README NumPy bridge check.
+torch>=2.2,<3
+numpy>=1.24,<3
+Pillow>=10,<14

@@ -1,0 +1,17 @@
+{
+  "chapter": 4,
+  "steps": 300,
+  "device": "cpu",
+  "parameters": 17410,
+  "before": {
+    "loss": 0.7225621342658997,
+    "accuracy": 0.34765625
+  },
+  "after": {
+    "loss": 4.304753019823693e-06,
+    "accuracy": 1.0
+  },
+  "parameter_update": true,
+  "reload_check": "PASS",
+  "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+}

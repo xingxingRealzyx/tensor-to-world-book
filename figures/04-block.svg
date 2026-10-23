@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="390" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 390" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="390"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-390)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="700" height="390" rx="14" ry="14" style="stroke: rgb(87%,90%,93%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="360" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 22px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,720) scale(1,-1)">一个Pre-LN Transformer层</text>
+			<text x="24" y="336" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,672) scale(1,-1)">主路径始终保留 [B,T,D]；每个子模块写入一个增量</text>
+			<rect x="72" y="238" width="124" height="67" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="87.76171875" y="278" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,556) scale(1,-1)">LayerNorm 1</text>
+			<text x="95.0" y="254" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,508) scale(1,-1)">按通道归一化</text>
+			<rect x="235" y="238" width="145" height="67" rx="7" ry="7" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="275.5" y="278" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,556) scale(1,-1)">自注意力</text>
+			<text x="275.0" y="254" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,508) scale(1,-1)">位置间交流</text>
+			<rect x="72" y="93" width="124" height="67" rx="7" ry="7" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="87.76171875" y="133" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,266) scale(1,-1)">LayerNorm 2</text>
+			<text x="95.0" y="109" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,218) scale(1,-1)">按通道归一化</text>
+			<rect x="235" y="93" width="145" height="67" rx="7" ry="7" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="291.05078125" y="133" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,266) scale(1,-1)">MLP</text>
+			<text x="275.0" y="109" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,218) scale(1,-1)">逐位置加工</text>
+			<path d="M 196,272 L 226,272 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="226 272, 218.9473 268.2238, 218.9473 275.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<path d="M 196,127 L 226,127 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="226 127, 218.9473 123.2238, 218.9473 130.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<text x="510" y="271" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,542) scale(1,-1)">残差主路径</text>
+			<text x="510" y="245" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,490) scale(1,-1)">[B,T,D]</text>
+			<path d="M 454,311 L 454,50 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 2.5;"/>
+			<circle cx="454" cy="220" r="14" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1.6; fill: rgb(100%,95%,90%); fill-rule: evenodd;"/>
+			<text x="448.744140625" y="215" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,430) scale(1,-1)">+</text>
+			<circle cx="454" cy="75" r="14" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1.6; fill: rgb(100%,95%,90%); fill-rule: evenodd;"/>
+			<text x="448.744140625" y="70" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,140) scale(1,-1)">+</text>
+			<path d="M 380,272 L 440,226 Z" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="440 226, 432.1054 227.2942, 436.7006 233.2879" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,50%); fill-rule: evenodd;"/>
+			<path d="M 380,127 L 440,81 Z" style="stroke: rgb(3%,49%,50%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="440 81, 432.1054 82.29421, 436.7006 88.28791" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,50%); fill-rule: evenodd;"/>
+			<path d="M 454,311 L 35,311 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 35,311 L 35,272 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 35,272 L 65,272 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="65 272, 57.94734 268.2238, 57.94734 275.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,57%); fill-rule: evenodd;"/>
+			<path d="M 454,181 L 35,181 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 35,181 L 35,127 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<path d="M 35,127 L 65,127 Z" style="stroke: rgb(13%,35%,57%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="65 127, 57.94734 123.2238, 57.94734 130.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(13%,35%,57%); fill-rule: evenodd;"/>
+			<text x="448.6640625" y="320" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,640) scale(1,-1)">X</text>
+			<text x="477" y="183" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,366) scale(1,-1)">U</text>
+			<text x="448.33056640625" y="25" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 17px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,50) scale(1,-1)">Y</text>
+			<text x="510" y="146" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 14px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,292) scale(1,-1)">MLP中间宽度可变</text>
+			<text x="510" y="121" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 14px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,242) scale(1,-1)">输出必须回到D</text>
+			<text x="510" y="96" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 14px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,192) scale(1,-1)">才可以相加</text>
+		</g>
+	</g>
+</svg>

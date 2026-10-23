@@ -1,0 +1,33 @@
+# Local runtimes, caches, and rendering intermediates
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+tmp/
+*.log
+.env
+.env.*
+
+# Publish only final reading artifacts, not smoke-test outputs
+output/*
+!output/pdf/
+!output/从张量到世界-书稿与实训.zip
+!output/package-manifest.json
+
+# Keep the verified training artifacts; readers' new runs stay local
+runs/*
+!runs/ch01/
+!runs/ch02/
+!runs/ch03/
+!runs/ch04/
+!runs/ch05/
+!runs/ch06/
+!runs/ch07/
+!runs/ch08/
+!runs/ch09/
+!runs/ch10/
+!runs/ch11/
+!runs/labs-summary.json
+!runs/tinyomni-final/

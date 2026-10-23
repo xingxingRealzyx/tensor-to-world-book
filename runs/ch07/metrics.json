@@ -1,0 +1,97 @@
+{
+  "chapter": 7,
+  "steps": 300,
+  "device": "cpu",
+  "parameters": 27776,
+  "before": {
+    "loss": 27.63725471496582,
+    "accuracy": 0.0,
+    "greedy_sequence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sampled_sequence": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "sampling": {
+      "temperature": 0.8,
+      "top_p": 0.9
+    }
+  },
+  "after": {
+    "loss": 4.988139153283555e-06,
+    "accuracy": 1.0,
+    "greedy_sequence": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "sampled_sequence": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "sampling": {
+      "temperature": 0.8,
+      "top_p": 0.9
+    }
+  },
+  "parameter_update": true,
+  "reload_check": "PASS",
+  "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+}

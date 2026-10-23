@@ -1,0 +1,639 @@
+[
+  {
+    "chapter": 1,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 6,
+    "before": {
+      "loss": 3.7249412536621094,
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068
+        ],
+        [
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132
+        ]
+      ],
+      "example_outputs": [
+        [
+          0.024405062198638916,
+          0.8790091872215271
+        ],
+        [
+          0.4173731803894043,
+          0.22221159934997559
+        ],
+        [
+          -1.3843119144439697,
+          -0.18001368641853333
+        ]
+      ],
+      "example_targets": [
+        [
+          -0.7309923768043518,
+          3.2661092281341553
+        ],
+        [
+          1.8036327362060547,
+          -0.10302400588989258
+        ],
+        [
+          -2.9387855529785156,
+          -1.4712610244750977
+        ]
+      ]
+    },
+    "after": {
+      "loss": 0.0030947683844715357,
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068
+        ],
+        [
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132
+        ]
+      ],
+      "example_outputs": [
+        [
+          -0.730705738067627,
+          3.1877472400665283
+        ],
+        [
+          1.8032506704330444,
+          -0.1287396103143692
+        ],
+        [
+          -2.938152313232422,
+          -1.396126389503479
+        ]
+      ],
+      "example_targets": [
+        [
+          -0.7309923768043518,
+          3.2661092281341553
+        ],
+        [
+          1.8036327362060547,
+          -0.10302400588989258
+        ],
+        [
+          -2.9387855529785156,
+          -1.4712610244750977
+        ]
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 2,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 64,
+    "before": {
+      "loss": 2.9239931106567383,
+      "accuracy": 0.0,
+      "greedy_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "loss": 0.2321038842201233,
+      "accuracy": 1.0,
+      "greedy_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 3,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 194,
+    "before": {
+      "loss": 0.6783798336982727,
+      "accuracy": 0.486328125
+    },
+    "after": {
+      "loss": 0.00018049996288027614,
+      "accuracy": 1.0
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 4,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 17410,
+    "before": {
+      "loss": 0.7225621342658997,
+      "accuracy": 0.34765625
+    },
+    "after": {
+      "loss": 4.304753019823693e-06,
+      "accuracy": 1.0
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 5,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 27776,
+    "before": {
+      "loss": 27.63725471496582,
+      "accuracy": 0.0,
+      "greedy_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "loss": 4.988139153283555e-06,
+      "accuracy": 1.0,
+      "greedy_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 6,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 27776,
+    "before": {
+      "loss": 27.63725471496582,
+      "accuracy": 0.0,
+      "greedy_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "after": {
+      "loss": 4.988139153283555e-06,
+      "accuracy": 1.0,
+      "greedy_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 7,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 27776,
+    "before": {
+      "loss": 27.63725471496582,
+      "accuracy": 0.0,
+      "greedy_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sampled_sequence": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sampling": {
+        "temperature": 0.8,
+        "top_p": 0.9
+      }
+    },
+    "after": {
+      "loss": 4.988139153283555e-06,
+      "accuracy": 1.0,
+      "greedy_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sampled_sequence": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "sampling": {
+        "temperature": 0.8,
+        "top_p": 0.9
+      }
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 8,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 322,
+    "before": {
+      "loss": 3.049299716949463,
+      "gelu_mse": 1.5483875274658203,
+      "swiglu_mse": 1.5009121894836426,
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068,
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132,
+          0.10726846754550934,
+          -1.9906320571899414
+        ],
+        [
+          1.1617000102996826,
+          -0.4597567319869995,
+          -0.40307095646858215,
+          -0.5030169486999512
+        ]
+      ],
+      "example_outputs": [
+        [
+          0.08966074883937836
+        ],
+        [
+          -0.251727819442749
+        ],
+        [
+          -0.10117131471633911
+        ]
+      ],
+      "example_targets": [
+        [
+          -0.047809891402721405
+        ],
+        [
+          -0.47083258628845215
+        ],
+        [
+          1.2537003755569458
+        ]
+      ]
+    },
+    "after": {
+      "loss": 0.028811026364564896,
+      "gelu_mse": 0.027570271864533424,
+      "swiglu_mse": 0.0012407551985234022,
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068,
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132,
+          0.10726846754550934,
+          -1.9906320571899414
+        ],
+        [
+          1.1617000102996826,
+          -0.4597567319869995,
+          -0.40307095646858215,
+          -0.5030169486999512
+        ]
+      ],
+      "example_outputs": [
+        [
+          0.12885887920856476
+        ],
+        [
+          -0.41053664684295654
+        ],
+        [
+          1.3404808044433594
+        ]
+      ],
+      "example_targets": [
+        [
+          -0.047809891402721405
+        ],
+        [
+          -0.47083258628845215
+        ],
+        [
+          1.2537003755569458
+        ]
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 9,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 272,
+    "before": {
+      "loss": 3.836825132369995,
+      "mse": 3.8240692615509033,
+      "expert_load": [
+        0.349609375,
+        0.0,
+        0.4921875,
+        0.158203125
+      ],
+      "note": "All experts computed before masking; no sparse speedup claimed.",
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068
+        ],
+        [
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132
+        ]
+      ],
+      "example_outputs": [
+        [
+          0.09142109751701355
+        ],
+        [
+          -0.048280924558639526
+        ],
+        [
+          -0.41852688789367676
+        ]
+      ],
+      "example_targets": [
+        [
+          0.09695315361022949
+        ],
+        [
+          -0.08903652429580688
+        ],
+        [
+          -0.03919762372970581
+        ]
+      ]
+    },
+    "after": {
+      "loss": 0.34792882204055786,
+      "mse": 0.3362470269203186,
+      "expert_load": [
+        0.5,
+        0.0,
+        0.22265625,
+        0.27734375
+      ],
+      "note": "All experts computed before masking; no sparse speedup claimed.",
+      "example_inputs": [
+        [
+          -0.7040048837661743,
+          0.9540347456932068
+        ],
+        [
+          0.7249861359596252,
+          0.3073207139968872
+        ],
+        [
+          -1.358573317527771,
+          -0.8432781100273132
+        ]
+      ],
+      "example_outputs": [
+        [
+          0.5762397050857544
+        ],
+        [
+          -0.12137389183044434
+        ],
+        [
+          -0.7400725483894348
+        ]
+      ],
+      "example_targets": [
+        [
+          0.09695315361022949
+        ],
+        [
+          -0.08903652429580688
+        ],
+        [
+          -0.03919762372970581
+        ]
+      ]
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 10,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 66,
+    "before": {
+      "loss": 1.4406607151031494,
+      "score_equivalence_error": 5.960464477539063e-08,
+      "output_equivalence_error": 7.450580596923828e-09,
+      "note": "Low-rank contents only; no RoPE or full DeepSeek MLA reproduction."
+    },
+    "after": {
+      "loss": 6.47879838666654e-09,
+      "score_equivalence_error": 2.384185791015625e-07,
+      "output_equivalence_error": 5.960464477539063e-08,
+      "note": "Low-rank contents only; no RoPE or full DeepSeek MLA reproduction."
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  },
+  {
+    "chapter": 11,
+    "steps": 300,
+    "device": "cpu",
+    "parameters": 4298,
+    "before": {
+      "loss": 2.3293588161468506,
+      "accuracy": 0.08203125,
+      "all_100_in_domain_pairs_accuracy": 0.07999999821186066,
+      "note": "Rule-teacher supervised distillation; not GRPO or reinforcement learning."
+    },
+    "after": {
+      "loss": 0.0006805711309425533,
+      "accuracy": 1.0,
+      "all_100_in_domain_pairs_accuracy": 1.0,
+      "note": "Rule-teacher supervised distillation; not GRPO or reinforcement learning."
+    },
+    "parameter_update": true,
+    "reload_check": "PASS",
+    "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+  }
+]

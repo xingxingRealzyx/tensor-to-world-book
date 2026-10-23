@@ -1,0 +1,67 @@
+{
+  "model": {
+    "d_model": 64,
+    "nhead": 4,
+    "dim_feedforward": 128,
+    "num_encoder_layers": 2,
+    "num_decoder_layers": 2,
+    "dropout": 0.0,
+    "patch_size": 8,
+    "audio_frame_size": 32,
+    "max_decode_len": 8,
+    "vocab_size": 17
+  },
+  "run": {
+    "seed": 42,
+    "tasks": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "mixed"
+    ],
+    "batch_size": 32,
+    "desired_steps": 1000,
+    "device": "cpu",
+    "threads": 2,
+    "learning_rate": 0.003,
+    "weight_decay": 0.01,
+    "grad_clip": 1.0,
+    "parameter_count": 352281,
+    "data_split": "training checkpoint unchanged; fresh validation seeds in high uint64 domain",
+    "scope": "finite synthetic combinations; held-out random perturbations, not unseen-combination or real-world generalization",
+    "resume_from": null,
+    "optimizer_restored": false,
+    "evaluation_seed": 42,
+    "validation_seed_scheme": "uint64-domain-v1: train high bit 0, validation high bit 1",
+    "validation_seed_domain": "[2**63,2**64)",
+    "evaluation_device": "cpu",
+    "evaluation_tasks": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "mixed"
+    ],
+    "evaluation_samples_per_task": 256
+  },
+  "vocab": [
+    "<pad>",
+    "<bos>",
+    "<eos>",
+    "<unk>",
+    "<task_text>",
+    "<task_image>",
+    "<task_audio>",
+    "<task_video>",
+    "<task_mixed>",
+    "red",
+    "green",
+    "blue",
+    "circle",
+    "square",
+    "triangle",
+    "left",
+    "right"
+  ]
+}

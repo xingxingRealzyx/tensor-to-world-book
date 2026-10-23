@@ -1,0 +1,32 @@
+{
+  "task": "text",
+  "input_text": "blue square left",
+  "predicted_tokens": [
+    "blue",
+    "square",
+    "left",
+    "<eos>"
+  ],
+  "training_step": 1000,
+  "ground_truth_available": false,
+  "action_available": true,
+  "predicted_actions": [
+    [
+      -0.24905331432819366,
+      -0.01187204010784626
+    ],
+    [
+      -0.48223456740379333,
+      -0.02122141793370247
+    ],
+    [
+      -0.7484230399131775,
+      -0.012366521172225475
+    ],
+    [
+      -1.0036166906356812,
+      0.003684030845761299
+    ]
+  ],
+  "scope": "controlled vocabulary, colored shapes, artificial tones; not natural-language or speech inference"
+}

@@ -1,0 +1,15 @@
+{
+  "task": "image",
+  "input_text": null,
+  "predicted_tokens": [
+    "red",
+    "circle",
+    "<unk>",
+    "<eos>"
+  ],
+  "training_step": 1000,
+  "ground_truth_available": false,
+  "action_available": false,
+  "predicted_actions": null,
+  "scope": "controlled vocabulary, colored shapes, artificial tones; not natural-language or speech inference"
+}

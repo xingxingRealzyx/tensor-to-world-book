@@ -1,0 +1,21 @@
+{
+  "chapter": 11,
+  "steps": 300,
+  "device": "cpu",
+  "parameters": 4298,
+  "before": {
+    "loss": 2.3293588161468506,
+    "accuracy": 0.08203125,
+    "all_100_in_domain_pairs_accuracy": 0.07999999821186066,
+    "note": "Rule-teacher supervised distillation; not GRPO or reinforcement learning."
+  },
+  "after": {
+    "loss": 0.0006805711309425533,
+    "accuracy": 1.0,
+    "all_100_in_domain_pairs_accuracy": 1.0,
+    "note": "Rule-teacher supervised distillation; not GRPO or reinforcement learning."
+  },
+  "parameter_update": true,
+  "reload_check": "PASS",
+  "validation": "Fresh synthetic sampling seeds; not a held-out semantic-combination test."
+}

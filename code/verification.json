@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "attention_weights": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.3302384506733431,
+      0.6697615493266569,
+      0.0
+    ],
+    [
+      0.2482550782577231,
+      0.2482550782577231,
+      0.5034898434845538
+    ]
+  ],
+  "attention_output": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.3302384506733431,
+      1.3395230986533138
+    ],
+    [
+      1.7587246087113846,
+      1.0
+    ]
+  ],
+  "gpt2_small_parameters": 124439808,
+  "gpt2_block_parameters": 7087872,
+  "mha_cache_GiB": 4.0,
+  "gqa_cache_GiB": 1.0,
+  "mla_cache_GiB": 2.14453125,
+  "expanded_mla_cache_GiB": 122.23828125,
+  "mla_example_weights": [
+    [
+      0.028317918542645707,
+      0.9716820814573542
+    ]
+  ],
+  "grpo_advantage": [
+    1.7320508075688774,
+    -0.5773502691896258,
+    -0.5773502691896258,
+    -0.5773502691896258
+  ],
+  "clip_row_probabilities": [
+    [
+      0.8437947344813395,
+      0.11419519938459449,
+      0.04201006613406605
+    ],
+    [
+      0.04201006613406606,
+      0.8437947344813396,
+      0.1141951993845945
+    ],
+    [
+      0.11419519938459449,
+      0.04201006613406605,
+      0.8437947344813395
+    ]
+  ],
+  "tiny_decoder": {
+    "status": "PASS",
+    "logits_shape": [
+      2,
+      5,
+      16
+    ],
+    "cache_per_layer_shape": [
+      2,
+      2,
+      5,
+      4
+    ],
+    "max_full_vs_cached_error": 3.608224830031759e-16,
+    "random_model_next_token_loss": 2.690412581826685,
+    "checks": [
+      "full versus one-token cached forward",
+      "prefill followed by chunked cached forward",
+      "future token cannot change earlier logits"
+    ]
+  }
+}

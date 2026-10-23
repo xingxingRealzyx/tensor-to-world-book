@@ -1,0 +1,46 @@
+{
+  "task": "image",
+  "seed": 90001,
+  "input_text_tokens": [
+    "<bos>",
+    "<task_image>",
+    "<unk>",
+    "<unk>",
+    "<unk>"
+  ],
+  "presence": {
+    "image": true,
+    "audio": false,
+    "video": false
+  },
+  "predicted_tokens": [
+    "red",
+    "circle",
+    "<unk>",
+    "<eos>"
+  ],
+  "predicted_text": "red circle <unk>",
+  "synthetic_ground_truth_tokens": [
+    "red",
+    "circle",
+    "<unk>",
+    "<eos>"
+  ],
+  "predicted_actions": null,
+  "synthetic_ground_truth_actions": null,
+  "action_target_is_observable": false,
+  "action_available": false,
+  "action_note": "motion is unobservable; this action head output was not supervised and is not exposed",
+  "action_interface": "4-step normalized 2D teaching trajectory; not a robot command",
+  "audio": {
+    "samples": 256,
+    "sample_rate_hz_for_export": 8000,
+    "duration_seconds": 0.032,
+    "meaning": "synthetic color/shape tone, not natural speech"
+  },
+  "image_mse": 0.0010628635063767433,
+  "audio_mse": 0.007333503104746342,
+  "action_mse": null,
+  "checkpoint": "runs/tinyomni-final/checkpoint.pt",
+  "training_step": 1000
+}
