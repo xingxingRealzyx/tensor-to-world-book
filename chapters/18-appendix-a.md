@@ -8,6 +8,8 @@
 | --- | --- | --- |
 | code/mini_transformer.py | NumPy前向与KV缓存 | 第03-07章 |
 | code/verify_examples.py | 手算数字自动复核 | 第01-12章 |
+| code/verify_fourd.py | 四维切片、卷积与多头计算核对 | 第01、03、12、17章 |
+| code/fourd_lab.py | 四维通道变换的训练与文件推理 | 第01章新增实训、第12章 |
 | tinyomni/lab.py | 第01-11章独立小训练 | 对应章节结束时 |
 | tinyomni/dataset.py | 合成世界与监督边界 | 第12章起 |
 | tinyomni/model.py | 共享模型与模态接口 | 第13-17章 |
@@ -17,20 +19,22 @@
 
 第一遍无需逐行读完所有实现。先运行一章实验，再在源码中找到与本章公式对应的十几行。记录输入、输出、损失和检查点路径。熟悉后，再尝试只修改一个设计变量，例如头数、宽度或可见模态。一次改变太多内容，会使结果难以归因。
 
-## A.2 两个不会更新参数的数学检查
+## A.2 不会更新参数的数学检查
 
 ```bash
 python code/verify_examples.py
 python code/mini_transformer.py
+python code/verify_tensor_walkthroughs.py
+python code/verify_fourd.py
 ```
 
-这两个命令只需要NumPy。它们验证注意力归一化、因果遮蔽、GPT-2参数总数、KV容量、MLA乘法重排、RoPE相对角度及微型解码器缓存。NumPy解码器使用随机参数，没有训练功能；它的用途是检验“这个计算是否实现了我以为的公式”。这与后面的PyTorch训练应分开理解。
+前三个命令只需要NumPy，覆盖注意力归一化、因果遮蔽、GPT-2参数总数、KV容量、MLA乘法重排、RoPE相对角度、张量分镜及微型解码器缓存。第四个命令使用PyTorch核对完整4D切片、卷积与矩阵形式的等价性，以及四个样本/头切片的独立计算；它还读取随书保存的4D推理结果。所有命令均不更新模型参数。NumPy解码器使用随机参数，作用是检验计算实现；真正训练使用后面的PyTorch实训入口。
 
 缓存检查比较三种方式：一次处理完整序列；逐token生成并保存每层KV；先做多token prefill，再用缓存处理下一段。三种结果应在浮点误差范围内一致。还会修改最后一个输入token，检查之前位置的logits是否不变。这类干预比只打印shape更能发现因果掩码错误。
 
 ## A.3 每章训练的验收标准
 
-第01-11章统一运行`python -m tinyomni.lab --chapter 章节号`，第12-16章切换到`python -m tinyomni.train`。前11章保留独立模型，是为了让某个机制的成败可以单独检查，并不是把所有小模型的权重直接拼成TinyOmni。最终项目在一个共同模型中重新训练。
+第01-11章统一运行`python -m tinyomni.lab --chapter 章节号`，第01章另有`python code/fourd_lab.py train`四维通道实验，第12-16章切换到`python -m tinyomni.train`。前11章保留独立模型，是为了让某个机制的成败可以单独检查，并不是把所有小模型的权重直接拼成TinyOmni。最终项目在一个共同模型中重新训练。
 
 运行小实验后，至少检查四件事：训练loss是否有限；参数是否真的变化；独立数据上的指标是否改善；保存后重新加载的输出是否一致。`lab.py`会对参数变化和重载等价性做断言，并保存`model.pt`、`metrics.json`、`loss.csv`。TinyOmni则额外保存优化器状态，支持恢复训练。
 

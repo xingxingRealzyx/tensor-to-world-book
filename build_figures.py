@@ -406,6 +406,12 @@ def figures():
     from tensor_figures_print_multimodal import build as print_multimodal
     out.update(print_core(Figure))
     out.update(print_multimodal(Figure))
+    from tensor_figures_4d_basics import build as fourd_basics
+    from tensor_figures_4d_attention import build as fourd_attention
+    from tensor_figures_4d_vision import build as fourd_vision
+    out.update(fourd_basics(Figure))
+    out.update(fourd_attention(Figure))
+    out.update(fourd_vision(Figure))
     return out
 
 if __name__=='__main__':

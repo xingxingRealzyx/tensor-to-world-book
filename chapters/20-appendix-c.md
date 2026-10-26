@@ -35,7 +35,15 @@
 23. [OpenVLA，2024](https://arxiv.org/abs/2406.09246)与[官方项目](https://openvla.github.io/)：跟踪视觉编码、语言主干与动作离散化。
 24. [π0，2024](https://arxiv.org/abs/2410.24164)与[openpi代码](https://github.com/Physical-Intelligence/openpi)：比较连续动作块的训练目标与采样实现，特别留意时间方向约定。
 
-## C.4 怎样读出一篇新论文的结构
+## C.4 四维算子的官方接口依据
+
+以下接口资料于2026年10月26日核对，链接固定到PyTorch 2.14文档；书中的小整数、分镜与训练样例均由本书独立构造。
+
+25. [torch.permute](https://docs.pytorch.org/docs/2.14/generated/torch.permute.html)：轴置换返回原张量的视图；结合第01章索引和stride表阅读。
+26. [torch.matmul](https://docs.pytorch.org/docs/2.14/generated/torch.matmul.html)：最后两根轴参加矩阵计算，前面的轴按广播规则匹配；对应第03、12章。
+27. [torch.nn.Conv2d](https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv2d.html)：核对NCHW输入、输出、卷积核及偏置的轴定义；对应第12、17章。
+
+## C.5 怎样读出一篇新论文的结构
 
 先写出输入和输出，再画每个中间表示。对每个“高效”声明分别问：减少参数、减少实际计算、减少常驻内存，还是减少数据搬运？对每个“能力提升”声明分别问：训练数据、模型结构、后训练、推理预算是否同时改变？对每个“开放”声明分别问：代码、权重、训练数据、许可和复现材料各开放了什么？
 

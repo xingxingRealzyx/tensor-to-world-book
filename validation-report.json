@@ -1,22 +1,23 @@
 {
-  "edition": "纸面分镜图解版 2026-10-26",
+  "edition": "4D张量图解增订版 2026-10-26",
   "title": "从张量到世界：Transformer、语言模型与多模态智能",
   "artifact_checks": {
     "status": "PASS",
-    "pdf_pages": 176,
+    "pdf_pages": 211,
     "main_chapters": 17,
     "appendices": 3,
-    "vector_figures": 55,
+    "vector_figures": 69,
     "chapter_labs": 17,
-    "markdown_characters": 136740,
-    "chinese_characters": 77149,
+    "markdown_characters": 160313,
+    "chinese_characters": 87086,
     "offline_html_anchors_valid": true,
     "external_raster_dependencies": false,
     "pdf_text_on_every_page": true,
-    "visual_qa": "All pages reviewed in contact sheets. New static storyboards, visibility masks and waveform legend additionally checked at reading resolution and in grayscale. After tightening the final chapter, all changed pages were re-rendered and checked. All storyboard panels and captions stay on one page.",
-    "generated_vector_assets": 60,
-    "new_tensor_cell_figures": 36,
-    "offline_html_unique_ids": true
+    "visual_qa": "All 212 pages of the first 4D build reviewed in contact sheets; all 14 new four-dimensional figures additionally checked enlarged and in grayscale. Chapter 01 figure placement was refined, and changed pages were rendered and reviewed again. Figure and caption remain on the same page.",
+    "generated_vector_assets": 74,
+    "new_tensor_cell_figures": 50,
+    "offline_html_unique_ids": true,
+    "four_dimensional_figures_added": 14
   },
   "execution_environment": {
     "platform": "macOS 26.4 arm64",
@@ -391,9 +392,10 @@
     "scope": "18 synthetic semantic combinations, 16x16 images, 256-sample tones, controlled attribute tokens. Results measure new perturbations, not unseen combinations, natural language, natural speech or real photographs."
   },
   "sha256": {
-    "pdf": "509d7ef6aa40e51c580b9a8176d5b4c7bd61278354e88e185f5db41f7ecba070",
-    "html": "7d7c7c49729941f29246bd0b8bebfd38878d3614ba1805c22f1ab2a7ad67a8a4",
-    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745"
+    "pdf": "dfd0506c0eeb9e8c13a6780e9bb6d1112f5a054c9e968bd2ebe518b85f5f022c",
+    "html": "fb6cde3899fb4d9066cb32264e0d9444a7a01238e41b986f03c0217f8e6aec33",
+    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745",
+    "fourd_checkpoint": "c5f7c9e7fc10ec675b48d903d30fd30a3855b9d42cadefe1111d7a0b3d171488"
   },
   "tensor_walkthroughs": {
     "status": "PASS",
@@ -514,7 +516,7 @@
     "dtype": "float64",
     "scope": "Actual PyTorch Conv2d versus unfold + permute + matrix multiplication."
   },
-  "training_validation_note": "The framework tests, mechanism training runs and TinyOmni checkpoint/results below were verified for the 2026-10-23 edition and retained unchanged. The paper edition adds static storyboard and print-layout verification; no new GPU performance or model-training claim.",
+  "training_validation_note": "The framework tests, 11 mechanism training runs and TinyOmni checkpoint/results were verified for the 2026-10-23 edition and retained unchanged. The 2026-10-26 4D revision additionally trains the eight-parameter channel projection for 400 CPU steps and runs saved-checkpoint file inference. No CUDA runtime or GPU performance claim is added.",
   "paper_edition_checks": {
     "status": "PASS",
     "static_storyboards": 5,
@@ -525,12 +527,478 @@
     "html_event_handlers": 0,
     "grayscale_qa": "Step numbers, indices, borders, read/blocked labels, hatching and solid/dashed waveform styles retain meaning without color.",
     "storyboard_pages": [
-      16,
-      31,
-      35,
-      118,
-      160
+      28,
+      44,
+      48,
+      142,
+      193
     ],
     "trained_checkpoint_unchanged": true
+  },
+  "fourd_edition_checks": {
+    "status": "PASS",
+    "figure_pages": {
+      "01-4d-slices": 11,
+      "01-4d-index": 13,
+      "01-4d-permute": 15,
+      "01-4d-broadcast": 18,
+      "01-4d-reduce": 20,
+      "03-4d-layout": 50,
+      "03-4d-scores": 52,
+      "03-4d-masks": 54,
+      "03-4d-read": 56,
+      "03-4d-merge": 58,
+      "12-4d-channelconv": 144,
+      "12-4d-matmul": 146,
+      "12-4d-patchbatch": 148,
+      "17-4d-real-layout": 190
+    },
+    "preserves_nontrivial_batch_axis": true,
+    "index_fixture_shape": [
+      2,
+      3,
+      2,
+      4
+    ],
+    "index_fixture_elements": 48,
+    "attention_shape": [
+      2,
+      2,
+      3,
+      2
+    ],
+    "attention_scores_shape": [
+      2,
+      2,
+      3,
+      3
+    ],
+    "figure_min_font_size": 16,
+    "figure_width": 700,
+    "scope": "Four-axis index maps, arithmetic, actual training and file inference; all figures are static and print-readable."
+  },
+  "fourd_numerical_verification": {
+    "status": "PASS",
+    "checks": [
+      "all 48 addresses, rank-preserving slicing, contiguous strides",
+      "NCHW to NHWC mapping and non-corner reshape counterexample",
+      "channel broadcasting versus erroneous last-axis addition",
+      "channel versus spatial reduction and retained singleton axes",
+      "1x1 convolution, channel-last matmul and scalar sums agree",
+      "four-dimensional matmul contracts the last spatial axis",
+      "patch convolution and flatten/transpose preserve batch identity",
+      "two samples split into two heads and merge without losing elements",
+      "four independent batch/head dot-product matrices match scalar loops",
+      "causal and per-sample padding masks broadcast along correct axes",
+      "masked padding queries may still produce nonzero outputs",
+      "merge order, ignored padding keys and isolated batch/head computation",
+      "stored deployment output matches the paper map"
+    ],
+    "x_shape": [
+      2,
+      3,
+      2,
+      4
+    ],
+    "nhwc_shape": [
+      2,
+      2,
+      4,
+      3
+    ],
+    "conv_output": [
+      [
+        [
+          [
+            -7.75,
+            -8.25,
+            -8.75,
+            -9.25
+          ],
+          [
+            -9.75,
+            -10.25,
+            -10.75,
+            -11.25
+          ]
+        ],
+        [
+          [
+            39.25,
+            41.75,
+            44.25,
+            46.75
+          ],
+          [
+            49.25,
+            51.75,
+            54.25,
+            56.75
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            -19.75,
+            -20.25,
+            -20.75,
+            -21.25
+          ],
+          [
+            -21.75,
+            -22.25,
+            -22.75,
+            -23.25
+          ]
+        ],
+        [
+          [
+            99.25,
+            101.75,
+            104.25,
+            106.75
+          ],
+          [
+            109.25,
+            111.75,
+            114.25,
+            116.75
+          ]
+        ]
+      ]
+    ],
+    "patch_output": [
+      [
+        [
+          [
+            -9.0,
+            -10.0
+          ]
+        ],
+        [
+          [
+            45.5,
+            50.5
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            -21.0,
+            -22.0
+          ]
+        ],
+        [
+          [
+            105.5,
+            110.5
+          ]
+        ]
+      ]
+    ],
+    "attention_raw_scores": [
+      [
+        [
+          [
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            2.0
+          ]
+        ],
+        [
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            -1.0,
+            1.0
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            1.0,
+            2.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            1.0
+          ]
+        ],
+        [
+          [
+            -1.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            2.0
+          ]
+        ]
+      ]
+    ],
+    "attention_weights": [
+      [
+        [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.33023845067334306,
+            0.6697615493266569,
+            0.0
+          ],
+          [
+            0.24825507825772308,
+            0.24825507825772308,
+            0.5034898434845538
+          ]
+        ],
+        [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.6697615493266569,
+            0.33023845067334306,
+            0.0
+          ],
+          [
+            0.28399540974126003,
+            0.14002924504337802,
+            0.575975345215362
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0
+          ],
+          [
+            0.33023845067334306,
+            0.6697615493266569,
+            0.0
+          ]
+        ],
+        [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.6697615493266569,
+            0.33023845067334306,
+            0.0
+          ],
+          [
+            0.5,
+            0.5,
+            0.0
+          ]
+        ]
+      ]
+    ],
+    "attention_outputs": [
+      [
+        [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.33023845067334306,
+            1.3395230986533138
+          ],
+          [
+            1.7587246087113846,
+            1.0
+          ]
+        ],
+        [
+          [
+            2.0,
+            1.0
+          ],
+          [
+            1.6697615493266569,
+            1.660476901346686
+          ],
+          [
+            0.708020064525898,
+            1.8560338353021182
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            1.0,
+            2.0
+          ],
+          [
+            2.0,
+            1.0
+          ],
+          [
+            2.3395230986533138,
+            0.6604769013466861
+          ]
+        ],
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.6604769013466861,
+            1.660476901346686
+          ],
+          [
+            1.0,
+            2.0
+          ]
+        ]
+      ]
+    ],
+    "attention_merged": [
+      [
+        [
+          1.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        [
+          0.33023845067334306,
+          1.3395230986533138,
+          1.6697615493266569,
+          1.660476901346686
+        ],
+        [
+          1.7587246087113846,
+          1.0,
+          0.708020064525898,
+          1.8560338353021182
+        ]
+      ],
+      [
+        [
+          1.0,
+          2.0,
+          0.0,
+          1.0
+        ],
+        [
+          2.0,
+          1.0,
+          0.6604769013466861,
+          1.660476901346686
+        ],
+        [
+          2.3395230986533138,
+          0.6604769013466861,
+          1.0,
+          2.0
+        ]
+      ]
+    ],
+    "trained_book_input_max_error": 3.0517578125e-05
+  },
+  "fourd_training": {
+    "format": "fourd-channel-v1",
+    "seed": 42,
+    "steps": 400,
+    "parameters": 8,
+    "device": "cpu",
+    "torch": "2.14.1",
+    "train_shape": [
+      32,
+      3,
+      4,
+      5
+    ],
+    "validation_shape": [
+      64,
+      3,
+      5,
+      7
+    ],
+    "output_channels": 2,
+    "initial_validation_mse": 6.977069854736328,
+    "final_validation_mse": 5.186675741675195e-13,
+    "parameter_update": true,
+    "checkpoint_reload_max_error": 0.0,
+    "conv_vs_permuted_matmul_max_error": 9.5367431640625e-07,
+    "cross_sample_interference_max_error": 0.0,
+    "learned_weight": [
+      [
+        1.0,
+        -2.0000007152557373,
+        0.5
+      ],
+      [
+        -0.5000000596046448,
+        1.0,
+        2.0000007152557373
+      ]
+    ],
+    "learned_bias": [
+      0.25,
+      -0.7500000596046448
+    ],
+    "scope": "Learning an affine channel map on synthetic 4D arrays; not image recognition.",
+    "commands_executed": [
+      "python code/fourd_lab.py train --steps 400 --seed 42 --device cpu --out runs/fourd-channels",
+      "python code/fourd_lab.py predict --checkpoint runs/fourd-channels/model.pt --input code/fourd-input.json --output runs/fourd-channels/prediction.json --device cpu",
+      "python code/verify_fourd.py"
+    ]
   }
 }

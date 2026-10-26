@@ -145,7 +145,7 @@ def cover(c,doc):
     c.drawString(48,176,'GPT-2  ·  DeepSeek  ·  VLM  ·  GPT-4o  ·  VLA')
     c.drawString(48,150,'逐章实训与 TinyOmni：文字、图像、声音的最小闭环')
     c.setFont('BookSans',10);c.setFillColor(colors.HexColor('#A8C3D3'))
-    c.drawString(48,92,'纸面分镜图解版  /  2026年10月26日')
+    c.drawString(48,92,'4D张量图解版  /  2026年10月26日')
     c.drawString(48,72,'训练配置面向 RTX 3090 24 GB；随书提供源码与验证记录')
     c.restoreState()
 
@@ -156,7 +156,7 @@ def running(c,doc):
     while pdfmetrics.stringWidth(label,'BookSans',8)>BW-100:label=label[:-2]+'…' if not label.endswith('…') else label[:-2]+'…'
     c.drawRightString(W-RIGHT,H-27,label)
     c.setStrokeColor(colors.HexColor('#D6E1E8'));c.setLineWidth(.5);c.line(LEFT,H-34,W-RIGHT,H-34)
-    c.setFont('BookSans',8);c.drawString(LEFT,24,'纸面分镜图解版 · 原理与实训')
+    c.setFont('BookSans',8);c.drawString(LEFT,24,'4D张量图解版 · 原理与实训')
     c.setFont('Helvetica',9);c.drawRightString(W-RIGHT,24,str(doc.page))
     c.restoreState()
 

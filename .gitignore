@@ -31,3 +31,6 @@ runs/*
 !runs/ch11/
 !runs/labs-summary.json
 !runs/tinyomni-final/
+
+# Verified four-dimensional channel-mixing experiment
+!runs/fourd-channels/

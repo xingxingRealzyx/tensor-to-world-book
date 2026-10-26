@@ -1,6 +1,6 @@
 # 从张量到世界
 
-中文纸质技术书与 TinyOmni 实训工程，纸面分镜图解版，2026-10-26。
+中文纸质技术书与 TinyOmni 实训工程，4D张量图解增订版，2026-10-26。全书211页、69幅静态插图，其中新增14幅四维张量专题图。
 
 ## 先看张量怎样计算
 
@@ -8,7 +8,19 @@
 
 关键运算均在纸面完整展开：用连续分镜同时保留输入、中间结果和输出，以步号、轴名、格子编号及算式追踪同一组数。矩阵乘法、多头拆分、因果注意力、图像切块和缺失模态各有逐步图解。全部解释与练习答案可以直接印成书，阅读无需运行程序。
 
-本版PDF共176页，正文含55幅静态插图，保留17章实训与完整TinyOmni工程。
+本版以四维张量为重点：第01章完整展开 `[2,3,2,4]` 的48个数；第03章同时计算两个样本、两个头的注意力；第12章对照四维卷积、轴变换和patch序列；第17章连接真实TinyOmni入口。所有图均为可打印静态图，保留17章实训与完整TinyOmni工程。
+
+## 新增的4D实训
+
+用8参数的1×1卷积学习逐像素通道变换，输入与输出始终为四维。随书包含实际400步CPU训练记录、权重与文件推理结果。
+
+```bash
+python code/fourd_lab.py train --steps 400 --device cpu --out runs/fourd-channels
+python code/fourd_lab.py predict --checkpoint runs/fourd-channels/model.pt --input code/fourd-input.json --output runs/fourd-channels/prediction.json --device cpu
+python code/verify_fourd.py
+```
+
+输入JSON包含本书的0到47。预测形状为 `[2,2,2,4]`；新增验证程序同时检查切片、NCHW/NHWC换轴、广播、归约、四维矩阵乘法、卷积、patch以及多头注意力。讲义与实际数值见第01章末尾，几何含义见第12章。
 
 ## 先打开书
 
@@ -50,6 +62,7 @@ python -m tinyomni.lab --chapter 3 --load runs/my-attention/model.pt --predict
 - `runs/tinyomni-final/metrics.json`：逐步loss、最终独立随机流验证，以及图像/音频消融；旧验证结果另存历史字段。
 - `runs/tinyomni-final/demo-*`：加载实际检查点得到的图像、音频、文字与对照材料。
 - `code/verification.json`：NumPy矩阵与KV缓存数值检查。
+- `runs/fourd-channels/`：8参数通道投影的400步真实训练、检查点与四维输入文件预测；数值与轴映射检查在 `code/fourd-verification.json`。
 
 这些训练和测试实际在Apple平台CPU上执行。CUDA路径与3090配置已提供，但没有伪称已测GPU耗时或显存峰值。训练环境版本记录在`validation-report.json`。
 
@@ -76,4 +89,4 @@ node build_reader.mjs
 python build_pdf.py
 ```
 
-源图由程序绘制，数值图从实际训练记录读取。张量运算图位于 `tensor_figures_core.py`、`tensor_figures_language.py`、`tensor_figures_multimodal.py`；连续分镜位于 `tensor_figures_print_core.py` 与 `tensor_figures_print_multimodal.py`。可执行 `python code/verify_tensor_walkthroughs.py` 核对书中算例的数值与索引。若新增章节或改变训练结果，应重新构建并检查PDF版面。来源核验笔记在`research/`；读者需要的主要出处已嵌入正文与附录C。
+源图由程序绘制，数值图从实际训练记录读取。张量运算图位于 `tensor_figures_core.py`、`tensor_figures_language.py`、`tensor_figures_multimodal.py`；连续分镜位于 `tensor_figures_print_core.py` 与 `tensor_figures_print_multimodal.py`；四维专题分别位于 `tensor_figures_4d_basics.py`、`tensor_figures_4d_attention.py`、`tensor_figures_4d_vision.py`。可执行 `python code/verify_tensor_walkthroughs.py` 与 `python code/verify_fourd.py` 核对书中算例的数值与索引。若新增章节或改变训练结果，应重新构建并检查PDF版面。来源核验笔记在`research/`；读者需要的主要出处已嵌入正文与附录C。

@@ -1,9 +1,9 @@
 {
-  "edition": "纸面分镜图解版 2026-10-26",
+  "edition": "4D张量图解增订版 2026-10-26",
   "archive": "从张量到世界-书稿与实训.zip",
-  "files": 229,
-  "bytes": 6422327,
-  "sha256": "7ae40b8a0b7cd7d52f3cd34a2232e19889f3771bdf5a033eac7af5e0dc8002ce",
+  "files": 254,
+  "bytes": 6651885,
+  "sha256": "5ddc50e5f5b4573ccf0f186877010e06e530c5eef84cbbf337a48c8f1a83e2bd",
   "crc_check": "PASS",
   "excludes": [
     "virtual environment",
