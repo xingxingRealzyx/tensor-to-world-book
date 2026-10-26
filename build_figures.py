@@ -52,6 +52,20 @@ class Figure:
                     st=str(values[r][c]); self.txt(x+c*cell+(cell-2)/2,y+r*cell+cell*.62,st,min(14,cell*.37),INK,'middle')
     def circle(self,x,y,r,color=TEAL,fill=None):
         self.d.add(Circle(x,self.h-y,r,strokeColor=HexColor(color),fillColor=HexColor(fill) if fill else None,strokeWidth=1.6))
+    def tensor(self,x,y,rows,cols,depth=2,cell=26,values=None,label='',depth_labels=None):
+        """A stack of gridded slices; depth is an index, not a physical dimension."""
+        palette=['#D6E8F5','#D8EEE7','#F8E4CD','#E7DFF1']
+        for z in reversed(range(depth)):
+            xx=x+z*15;yy=y-z*18
+            self.rect(xx-3,yy-3,cols*cell+4,rows*cell+4,'#FFFFFF',stroke=MUTED,radius=2)
+            for r in range(rows):
+                for c in range(cols):
+                    self.rect(xx+c*cell,yy+r*cell,cell-2,cell-2,palette[z%4],radius=1)
+                    if values is not None:
+                        self.txt(xx+(c+.5)*cell-1,yy+(r+.65)*cell,str(values[z][r][c]),min(16,cell*.39),INK,'middle')
+        if label:self.txt(x,y+rows*cell+25,label,15,BLUE)
+        if depth_labels:
+            self.txt(x,y-depth*18-10,' / '.join(depth_labels),14,MUTED)
 
 def figures():
     out={}
@@ -354,6 +368,12 @@ def figures():
         plot(wav(demo_root/'demo-audio/generated_audio.wav'),28,458,645,66,TEAL)
         f.txt(350,505,'橙：目标  /  绿：模型输出；这是合成音调，不是自然语音。',13,MUTED,'middle')
         out['17-generated']=f.d
+    from tensor_figures_core import build as core_tensors
+    from tensor_figures_language import build as language_tensors
+    from tensor_figures_multimodal import build as multimodal_tensors
+    out.update(core_tensors(Figure))
+    out.update(language_tensors(Figure))
+    out.update(multimodal_tensors(Figure))
     return out
 
 if __name__=='__main__':

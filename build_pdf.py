@@ -59,6 +59,7 @@ class VectorFigure(Flowable):
     def __init__(self,drawing):
         super().__init__();self.drawing=drawing
         self.width=BW;self.height=drawing.height*(BW/drawing.width)
+        self.keepWithNext=True
     def draw(self):
         self.canv.saveState();self.canv.scale(BW/self.drawing.width,BW/self.drawing.width)
         renderPDF.draw(self.drawing,self.canv,0,0);self.canv.restoreState()
@@ -144,7 +145,7 @@ def cover(c,doc):
     c.drawString(48,176,'GPT-2  ·  DeepSeek  ·  VLM  ·  GPT-4o  ·  VLA')
     c.drawString(48,150,'逐章实训与 TinyOmni：文字、图像、声音的最小闭环')
     c.setFont('BookSans',10);c.setFillColor(colors.HexColor('#A8C3D3'))
-    c.drawString(48,92,'首版书稿  /  2026年10月23日')
+    c.drawString(48,92,'张量块图解版  /  2026年10月26日')
     c.drawString(48,72,'训练配置面向 RTX 3090 24 GB；随书提供源码与验证记录')
     c.restoreState()
 
@@ -155,11 +156,16 @@ def running(c,doc):
     while pdfmetrics.stringWidth(label,'BookSans',8)>BW-100:label=label[:-2]+'…' if not label.endswith('…') else label[:-2]+'…'
     c.drawRightString(W-RIGHT,H-27,label)
     c.setStrokeColor(colors.HexColor('#D6E1E8'));c.setLineWidth(.5);c.line(LEFT,H-34,W-RIGHT,H-34)
-    c.setFont('BookSans',8);c.drawString(LEFT,24,'首版书稿 · 原理与实训')
+    c.setFont('BookSans',8);c.drawString(LEFT,24,'张量块图解版 · 原理与实训')
     c.setFont('Helvetica',9);c.drawRightString(W-RIGHT,24,str(doc.page))
     c.restoreState()
 
 FIGURES=figures()
+
+def leading_space(height):
+    spacer=Spacer(1,height)
+    spacer.keepWithNext=True
+    return spacer
 
 def render_blocks(tokens,chapter_start=False):
     out=[]
@@ -179,7 +185,7 @@ def render_blocks(tokens,chapter_start=False):
                     name=Path(im['href']).stem
                     if name not in FIGURES:raise RuntimeError(f'Missing illustration: {name}')
                     cap=Paragraph(esc(im.get('text','')),STYLES['caption'])
-                    out.append(KeepTogether([Spacer(1,6),VectorFigure(FIGURES[name]),cap]))
+                    out.extend([leading_space(6),VectorFigure(FIGURES[name]),cap])
             else:
                 text=inline(inlines) if inlines else esc(token.get('text',''))
                 if text.strip():out.append(Paragraph(text,STYLES['body']))
@@ -197,7 +203,7 @@ def render_blocks(tokens,chapter_start=False):
                 ('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),7),
                 ('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),
                 ('BOTTOMPADDING',(0,0),(-1,-1),7)]))
-            out.extend([Spacer(1,3),table,Spacer(1,11)])
+            out.extend([leading_space(3),table,Spacer(1,11)])
         elif typ=='list':
             for i,item in enumerate(token['items']):
                 prefix=f'{i+token.get("start",1)}. ' if token.get('ordered') else '• '

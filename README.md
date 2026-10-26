@@ -1,10 +1,20 @@
 # 从张量到世界
 
-中文技术书与 TinyOmni 实训工程，首版书稿，2026-10-23。
+中文技术书与 TinyOmni 实训工程，张量块图解修订版，2026-10-26。
+
+## 先看张量怎样计算
+
+本版按“一个输出格读取了哪些输入格”重写图解，保留完整理论和逐章实训：从矩阵乘加、reshape/transpose、多头、注意力，到MoE路由、MLA低秩计算、图像patch、音频分帧和多模态拼接。
+
+[打开逐格交互演示源码](interactive/tensor-lab.html)：下载仓库后双击这个HTML文件，用浏览器离线运行，无需Python或网络。可以点选矩阵输出格、逐项乘加、追踪拆头索引、展开因果注意力，并切换TinyOmni缺失模态的mask。也可在项目根目录执行 `python -m http.server 8766 --bind 127.0.0.1`，浏览器访问 `http://127.0.0.1:8766/interactive/tensor-lab.html`。
+
+![逐格交互演示：选定输出格，跟踪输入行与权重列](interactive/preview.png)
+
+本版PDF共168页，正文含50幅插图，其中31幅为新增张量格子图。交互演示包含5个场景、24个步骤。
 
 ## 先打开书
 
-- [PDF 书稿](output/pdf/从张量到世界.pdf)：138页，含可点击目录与资料链接。
+- [PDF 书稿](output/pdf/从张量到世界.pdf)：含可点击目录、张量块图解与资料链接。
 - [离线阅读版 HTML](从张量到世界.html)：下载后用浏览器打开，插图已内嵌。
 - [完整书稿与训练工程 ZIP](output/从张量到世界-书稿与实训.zip)：包含源码、插图、实验记录和已训练权重。
 - [在线阅读 Markdown](book.md)：合并后的完整正文；分章原稿在`chapters/`，实训讲义在`labs/`。
@@ -68,4 +78,4 @@ node build_reader.mjs
 python build_pdf.py
 ```
 
-源图由程序绘制，数值图从实际训练记录读取。若新增章节或改变训练结果，应重新构建并检查PDF版面。来源核验笔记在`research/`；读者需要的主要出处已嵌入正文与附录C。
+源图由程序绘制，数值图从实际训练记录读取。张量运算图分别位于 `tensor_figures_core.py`、`tensor_figures_language.py`、`tensor_figures_multimodal.py`。可执行 `python code/verify_tensor_walkthroughs.py` 和 `node code/verify_tensor_lab.mjs` 核对新增演示的数值与索引。若新增章节或改变训练结果，应重新构建并检查PDF版面。来源核验笔记在`research/`；读者需要的主要出处已嵌入正文与附录C。

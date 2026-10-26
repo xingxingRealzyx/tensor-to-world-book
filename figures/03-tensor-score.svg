@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="700" height="500" preserveAspectRatio="xMinYMin meet" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="700" height="500"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-500)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="700" height="500" rx="14" ry="14" style="stroke: rgb(87%,90%,93%); stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="24" y="470" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 22px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,940) scale(1,-1)">注意力第一乘：每个查询对每个键打分</text>
+			<text x="24" y="446" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 13px;fill: rgb(32%,42%,49%); stroke:none;" transform="translate(0,892) scale(1,-1)">先把K转置，让一个查询行能依次与每个键列做点积</text>
+			<text x="30" y="400" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 17px;fill: rgb(13%,35%,57%); stroke:none;" transform="translate(0,800) scale(1,-1)">Q [Tq=3,d=2]</text>
+			<rect x="30" y="335" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="45.6786962890625" y="348.53999999999996" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,697) scale(1,-1)">1</text>
+			<rect x="72" y="335" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="87.6786962890625" y="348.53999999999996" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,697) scale(1,-1)">0</text>
+			<rect x="30" y="293" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="45.6786962890625" y="306.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,613) scale(1,-1)">0</text>
+			<rect x="72" y="293" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="87.6786962890625" y="306.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,613) scale(1,-1)">1</text>
+			<rect x="30" y="251" width="40" height="40" rx="2" ry="2" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,87%,65%); fill-rule: evenodd;"/>
+			<text x="45.6786962890625" y="264.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,529) scale(1,-1)">1</text>
+			<rect x="72" y="251" width="40" height="40" rx="2" ry="2" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,87%,65%); fill-rule: evenodd;"/>
+			<text x="87.6786962890625" y="264.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,529) scale(1,-1)">1</text>
+			<text x="232" y="400" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 17px;fill: rgb(3%,49%,50%); stroke:none;" transform="translate(0,800) scale(1,-1)">K.T [d=2,Tk=3]</text>
+			<rect x="232" y="335" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="247.6786962890625" y="348.53999999999996" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,697) scale(1,-1)">1</text>
+			<rect x="274" y="335" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="289.6786962890625" y="348.53999999999996" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,697) scale(1,-1)">0</text>
+			<rect x="316" y="335" width="40" height="40" rx="2" ry="2" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,87%,65%); fill-rule: evenodd;"/>
+			<text x="331.6786962890625" y="348.53999999999996" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,697) scale(1,-1)">1</text>
+			<rect x="232" y="293" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="247.6786962890625" y="306.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,613) scale(1,-1)">0</text>
+			<rect x="274" y="293" width="40" height="40" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="289.6786962890625" y="306.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,613) scale(1,-1)">1</text>
+			<rect x="316" y="293" width="40" height="40" rx="2" ry="2" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,87%,65%); fill-rule: evenodd;"/>
+			<text x="331.6786962890625" y="306.54" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 15.54px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,613) scale(1,-1)">1</text>
+			<text x="487" y="400" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 17px;fill: rgb(80%,43%,17%); stroke:none;" transform="translate(0,800) scale(1,-1)">Q @ K.T [3,3]</text>
+			<rect x="487" y="329" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="505.55078125" y="344.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,689) scale(1,-1)">1</text>
+			<rect x="535" y="329" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="553.55078125" y="344.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,689) scale(1,-1)">0</text>
+			<rect x="583" y="329" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="601.55078125" y="344.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,689) scale(1,-1)">1</text>
+			<rect x="487" y="281" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="505.55078125" y="296.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,593) scale(1,-1)">0</text>
+			<rect x="535" y="281" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="553.55078125" y="296.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,593) scale(1,-1)">1</text>
+			<rect x="583" y="281" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="601.55078125" y="296.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,593) scale(1,-1)">1</text>
+			<rect x="487" y="233" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="505.55078125" y="248.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,497) scale(1,-1)">1</text>
+			<rect x="535" y="233" width="46" height="46" rx="2" ry="2" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(90%,93%,96%); fill-rule: evenodd;"/>
+			<text x="553.55078125" y="248.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,497) scale(1,-1)">1</text>
+			<rect x="583" y="233" width="46" height="46" rx="2" ry="2" style="stroke: rgb(80%,43%,17%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,87%,65%); fill-rule: evenodd;"/>
+			<text x="601.55078125" y="248.76" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 16px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,497) scale(1,-1)">2</text>
+			<text x="166" y="308" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 25px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,616) scale(1,-1)">@</text>
+			<path d="M 373,315 L 464,315 Z" style="stroke: rgb(32%,42%,49%); stroke-linecap: butt; stroke-width: 1.6;"/>
+			<polygon points="464 315, 456.9473 311.2238, 456.9473 318.7762" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(32%,42%,49%); fill-rule: evenodd;"/>
+			<text x="30" y="176" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,352) scale(1,-1)">橙色格 (Q@K.T)[2,2] = [1,1] · [1,1] = 2。</text>
+			<text x="30" y="140" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,280) scale(1,-1)">输出的行号来自查询位置Tq，列号来自键位置Tk。</text>
+			<text x="30" y="104" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,208) scale(1,-1)">比较用的d轴被求和消去；这张表不再是“位置×特征”。</text>
+			<text x="30" y="68" style="font-family: Arial Unicode MS, PingFang SC, sans-serif; font-size: 18px;fill: rgb(9%,17%,25%); stroke:none;" transform="translate(0,136) scale(1,-1)">在下一张图里，沿每行的Tk轴把分数变成读取比例。</text>
+		</g>
+	</g>
+</svg>

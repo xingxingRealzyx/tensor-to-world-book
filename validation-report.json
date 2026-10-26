@@ -1,19 +1,22 @@
 {
-  "edition": "首版书稿 2026-10-23",
+  "edition": "张量块图解修订版 2026-10-26",
   "title": "从张量到世界：Transformer、语言模型与多模态智能",
   "artifact_checks": {
     "status": "PASS",
-    "pdf_pages": 138,
+    "pdf_pages": 168,
     "main_chapters": 17,
     "appendices": 3,
-    "vector_figures": 24,
+    "vector_figures": 50,
     "chapter_labs": 17,
-    "markdown_characters": 119272,
-    "chinese_characters": 66723,
+    "markdown_characters": 133326,
+    "chinese_characters": 75063,
     "offline_html_anchors_valid": true,
     "external_raster_dependencies": false,
     "pdf_text_on_every_page": true,
-    "visual_qa": "All 138 final pages reviewed in contact sheets; training/result/command pages also reviewed at full reading resolution."
+    "visual_qa": "All 168 final pages reviewed in contact sheets; new tensor diagrams and training/deployment pages additionally inspected at reading resolution. Fixed headings separated from following diagrams/tables.",
+    "generated_vector_assets": 55,
+    "new_tensor_cell_figures": 31,
+    "offline_html_unique_ids": true
   },
   "execution_environment": {
     "platform": "macOS 26.4 arm64",
@@ -388,8 +391,74 @@
     "scope": "18 synthetic semantic combinations, 16x16 images, 256-sample tones, controlled attribute tokens. Results measure new perturbations, not unseen combinations, natural language, natural speech or real photographs."
   },
   "sha256": {
-    "pdf": "948d90f4b7a74240c177afc17a5863d6d17672197257cae164e34b1c42429b4e",
-    "html": "b1364100ab988d5391322b9da7add1a94875f76ac5e9330d651eb2b523575809",
-    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745"
-  }
+    "pdf": "33aeff095930ce11d6f90a613c7e1820a17d7e196ca6e1c7f6e8eeedcf8a9c1f",
+    "html": "d31e945e0cb5a81ea91ff6d5e4d4205170d0ff4a82490e474d7e6226dda064ee",
+    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745",
+    "interactive": "0747c4ca94fdff8b8529cad5380087ee4b74f2607a7b94a662c3abb29d875775"
+  },
+  "tensor_walkthroughs": {
+    "status": "PASS",
+    "checks": [
+      "row-column contraction",
+      "bias broadcasting",
+      "reshape versus transpose",
+      "reduction axes",
+      "embedding gather",
+      "masked attention and value mixing",
+      "head split and exact inverse",
+      "LayerNorm row statistics",
+      "residual addition",
+      "expanded feedforward"
+    ],
+    "attention_output": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.3302384506733431,
+        1.3395230986533138
+      ],
+      [
+        1.7587246087113846,
+        1.0
+      ]
+    ],
+    "normalization_output": [
+      -1.3416394448610998,
+      -0.4472131482870333,
+      0.4472131482870333,
+      1.3416394448610998
+    ],
+    "scope": "Hand-sized diagrams and index mappings; no new model training or GPU performance claim."
+  },
+  "interactive_demonstrations": {
+    "status": "PASS",
+    "scenarios": 5,
+    "steps": 24,
+    "automated_check_groups": 8,
+    "command": "node code/verify_tensor_lab.mjs",
+    "browser_qa": "Actual IAB desktop checks of matrix output selection, causal-attention value mixing and TinyOmni missing-audio mask; visual responsive check in a 320px-wide iframe.",
+    "offline": true,
+    "preview": "interactive/preview.png"
+  },
+  "patch_convolution_equivalence": {
+    "status": "PASS",
+    "input_shape": [
+      1,
+      3,
+      16,
+      16
+    ],
+    "patch_matrix_shape": [
+      1,
+      4,
+      192
+    ],
+    "flatten_order": "channel, patch row, patch column",
+    "explicit_matmul_vs_conv2d_max_error": 0.0,
+    "dtype": "float64",
+    "scope": "Actual PyTorch Conv2d versus unfold + permute + matrix multiplication."
+  },
+  "training_validation_note": "The framework tests, mechanism training runs and TinyOmni checkpoint/results below were verified for the 2026-10-23 edition and retained unchanged. This 2026-10-26 revision adds diagram/interactive verification; no new GPU performance or model-training claim."
 }

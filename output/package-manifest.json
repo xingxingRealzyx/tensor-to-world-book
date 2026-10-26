@@ -1,13 +1,16 @@
 {
+  "edition": "张量块图解修订版 2026-10-26",
   "archive": "从张量到世界-书稿与实训.zip",
-  "files": 186,
-  "bytes": 6052399,
-  "sha256": "2b6e4215fa4d4754370f1d9b7262f49c7a6fe7db44ae932fb480949817958d60",
+  "files": 225,
+  "bytes": 6446322,
+  "sha256": "2cc12a31f7c58fa2039aff62acb719607647f21d7ff3e71edecc926423732c5b",
   "crc_check": "PASS",
   "excludes": [
     "virtual environment",
     "temporary renders",
     "old smoke-test checkpoints",
-    "Python caches"
+    "Python caches",
+    "Git internals",
+    "archive itself and package manifest"
   ]
 }

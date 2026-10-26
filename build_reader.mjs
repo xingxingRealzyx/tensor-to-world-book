@@ -28,6 +28,13 @@ const blocks=chapters.map((c,i)=>{
     const p=path.join(root,'figures',name+'.svg');
     if(!fs.existsSync(p))throw new Error(`Missing ${p}`);
     let svg=fs.readFileSync(p,'utf8').replace(/<\?xml[^>]*>/,'').replace(/<!DOCTYPE[^>]*>/,'');
+    // Each inline SVG needs its own clip paths and group identifiers.
+    for(const match of [...svg.matchAll(/\bid="([^"]+)"/g)]){
+      const id=match[1], scoped=`${name}-${id}`;
+      svg=svg.replaceAll(`id="${id}"`,`id="${scoped}"`)
+        .replaceAll(`url(#${id})`,`url(#${scoped})`)
+        .replaceAll(`href="#${id}"`,`href="#${scoped}"`);
+    }
     svg=svg.replace(/<svg /,`<svg role="img" aria-label="${alt}" `);
     return `<figure>${svg}<figcaption>${alt}</figcaption></figure>`;
   });
@@ -42,6 +49,6 @@ nav{position:fixed;inset:0 auto 0 0;width:260px;padding:28px 20px;background:#14
 main{margin-left:260px;padding:40px 32px 100px}.chapter{max-width:930px;margin:0 auto 36px;padding:54px 64px;background:var(--paper);box-shadow:0 4px 28px #16334e08;border:1px solid var(--line);border-radius:3px;scroll-margin-top:24px}h1{font-size:31px;line-height:1.5;font-weight:650;margin:0 0 40px;color:#173f61;border-bottom:3px solid #168384;padding-bottom:24px}h2{font-size:22px;line-height:1.5;margin:42px 0 18px;color:#185b78}h3{font-size:19px;margin-top:30px}p{margin:0 0 20px;text-align:justify}strong{color:#153d5a}a{color:#1a7485;text-underline-offset:3px}code{font:0.86em/1.6 'SFMono-Regular',Consolas,'PingFang SC',monospace;background:#eef3f6;border-radius:4px;padding:2px 5px}pre{background:#edf3f7;border-left:3px solid #41859e;padding:20px 22px;overflow:auto;line-height:1.65;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}pre code{padding:0;background:none;font-size:inherit}table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7;margin:25px 0}th,td{padding:11px 13px;border:1px solid #d8e3eb;text-align:left;vertical-align:top;overflow-wrap:anywhere}th{background:#e9f0f6;color:#1b4c70}tr:nth-child(even){background:#f8fafb}figure{margin:27px -12px}figure svg{display:block;width:100%;height:auto}figcaption{font-size:13px;color:#627689;line-height:1.65;margin:10px 12px}blockquote{margin:24px 0;border-left:4px solid #d28b4f;padding:12px 20px;background:#fff4e9}ul,ol{padding-left:28px}li{margin:9px 0}.toolbar{position:fixed;right:18px;bottom:18px;z-index:10}button{border:1px solid #b3cad8;background:#fff;color:#224f6d;border-radius:8px;padding:10px 16px;font-size:13px;cursor:pointer}
 @media(max-width:1000px){nav{width:210px}main{margin-left:210px;padding:24px 15px}.chapter{padding:36px 30px}body{font-size:17px}}@media(max-width:700px){nav{position:relative;width:auto;max-height:300px}nav a{display:inline-block;margin-right:16px}main{margin-left:0;padding:14px 8px}.chapter{padding:30px 20px}h1{font-size:27px}figure{margin:22px -10px}table{font-size:13px}}
 @media print{nav,.toolbar{display:none}main{margin:0;padding:0}.chapter{box-shadow:none;border:0;margin:0;padding:0;page-break-before:always}body{background:white;font-size:11pt}h1{font-size:24pt}h2{font-size:16pt}figure,table,pre{break-inside:avoid}a{color:inherit}}
-</style></head><body><nav><b>TENSORS TO WORLD</b><h2>从张量到世界</h2><p>首版书稿 · 2026.10.23<br>原理、矩阵图解与可运行训练项目<br>面向 RTX 3090 / 24 GB</p>${toc}</nav><main>${blocks}</main><div class="toolbar"><button onclick="window.print()">打印 / 保存</button></div></body></html>`;
+</style></head><body><nav><b>TENSORS TO WORLD</b><h2>从张量到世界</h2><p>张量块图解版 · 2026.10.26<br>原理、矩阵图解与可运行训练项目<br>面向 RTX 3090 / 24 GB</p><a href="interactive/tensor-lab.html">▶ 打开逐格交互演示</a>${toc}</nav><main>${blocks}</main><div class="toolbar"><button onclick="window.print()">打印 / 保存</button></div></body></html>`;
 fs.writeFileSync(path.join(root,'从张量到世界.html'),html);
 console.log(JSON.stringify({chapters:chapters.length,characters:chapters.reduce((a,c)=>a+c.source.length,0),images:(html.match(/<figure>/g)||[]).length}));

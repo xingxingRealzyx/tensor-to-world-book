@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "checks": [
+    "row-column contraction",
+    "bias broadcasting",
+    "reshape versus transpose",
+    "reduction axes",
+    "embedding gather",
+    "masked attention and value mixing",
+    "head split and exact inverse",
+    "LayerNorm row statistics",
+    "residual addition",
+    "expanded feedforward"
+  ],
+  "attention_output": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.3302384506733431,
+      1.3395230986533138
+    ],
+    [
+      1.7587246087113846,
+      1.0
+    ]
+  ],
+  "normalization_output": [
+    -1.3416394448610998,
+    -0.4472131482870333,
+    0.4472131482870333,
+    1.3416394448610998
+  ],
+  "scope": "Hand-sized diagrams and index mappings; no new model training or GPU performance claim."
+}
