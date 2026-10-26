@@ -148,14 +148,21 @@ def figures():
     f.lines(510,244,['MLP中间宽度可变', '输出必须回到D', '才可以相加'],14,MUTED,25)
     out['04-block']=f.d
 
-    f=Figure('可见性决定结构能使用哪些信息','蓝色为可读，灰色为不可读；交叉注意力可以读取完整源表示',310)
+    f=Figure('可见性决定结构能使用哪些信息','格内“读/禁”标明可见性；交叉注意力可以读取完整源表示',344)
     for x,title,mask in [(30,'编码器：双向',None),(263,'解码器：因果',lambda r,c:c>r)]:
-        f.txt(x,97,title,16,BLUE);f.matrix(x+20,122,4,4,cell=32,mask=mask)
+        f.txt(x,94,title,16,BLUE)
+        f.txt(x,115,'查询 i ↓  /  键 j →',12,MUTED)
+        gx,gy=x+32,145
+        visible=[['禁' if mask and mask(i,j) else '读' for j in range(4)] for i in range(4)]
+        f.matrix(gx,gy,4,4,visible,cell=32,mask=mask)
+        for i in range(4):
+            f.txt(gx+(i+.5)*32-1,136,str(i),12,MUTED,'middle')
+            f.txt(gx-10,gy+(i+.62)*32,str(i),12,MUTED,'end')
     f.txt(485,97,'编码器-解码器',16,TEAL)
     f.card(489,119,174,57,'源表示 [T_src,D]',color=TEAL)
     f.arrow(574,177,574,205,TEAL)
     f.card(489,214,174,57,'目标查询 [T_tgt,D]')
-    f.txt(27,291,'每一类结构还可包含填充、分段或任务专用掩码。',14,MUTED)
+    f.txt(27,317,'读 = 可以读取该键；禁 = 不可读取。各结构还可叠加填充或任务掩码。',14,MUTED)
     out['04-families']=f.d
 
     f=Figure('GPT-2 small：一条完整的前向路径','固定标本：12层、D=768、12头、V=50257、上下文1024',365)
@@ -335,8 +342,9 @@ def figures():
     demo_root=ROOT/'runs/tinyomni-final'
     if (demo_root/'demo-audio/generated_image.png').exists():
         from PIL import Image
+        from reportlab.graphics.shapes import PolyLine
         import struct
-        f=Figure('模型生成样例：不同输入，重建同一小世界','checkpoint第1000步，seed90001；图像像素放大显示',515)
+        f=Figure('模型生成样例：不同输入，重建同一小世界','checkpoint第1000步，seed90001；图像像素放大显示',620)
         def pixels(path,x,y,size=67):
             with Image.open(path) as im:
                 im=im.convert('RGB');pix=im.load();unit=size/16
@@ -346,9 +354,12 @@ def figures():
                         f.rect(x+c*unit,y+r*unit,unit+.12,unit+.12,col,radius=0)
         def wav(path):
             with wave.open(str(path),'rb') as w:return [v/32767 for v in struct.unpack('<256h',w.readframes(256))]
-        def plot(samples,x,y,width,height,color):
-            pts=[(x+i/(len(samples)-1)*width,y-v*height/2) for i,v in enumerate(samples)]
-            for a,b in zip(pts,pts[1:]):f.line(*a,*b,color,width=1)
+        def plot(samples,x,y,width,height,color,dash=None,line_width=1):
+            # A single polyline keeps the dash phase continuous across samples.
+            pts=[coordinate for i,v in enumerate(samples)
+                 for coordinate in (x+i/(len(samples)-1)*width,f.h-(y-v*height/2))]
+            f.d.add(PolyLine(pts,strokeColor=HexColor(color),strokeWidth=line_width,
+                            strokeDashArray=dash,fillColor=None))
         f.txt(91,85,'输入条件',14,BLUE,'middle');f.txt(314,85,'预测图像',14,TEAL,'middle')
         f.txt(436,85,'目标图像',14,MUTED,'middle');f.txt(582,85,'预测文字',14,ORANGE,'middle')
         for i,task in enumerate(['text','image','audio']):
@@ -358,15 +369,32 @@ def figures():
             else:
                 f.line(25,yy+35,195,yy+35,'#D5E1E8',width=.7)
                 plot(wav(folder/'input_audio.wav'),25,yy+35,170,65,BLUE)
+                f.txt(25,yy+82,'s: 0…255；幅度[-1,1]',11,MUTED)
             f.arrow(208,yy+34,260,yy+34,TEAL)
             pixels(folder/'generated_image.png',280,yy);pixels(folder/'target_image.png',402,yy)
             pred=json.loads((folder/'prediction.json').read_text())['predicted_tokens']
             f.lines(582,yy+24,[' '.join(pred[:2]),pred[2]],14,ORANGE,24,'middle')
         f.txt(28,410,'音频任务：预测波形与规范目标波形',15,INK)
-        f.line(28,458,673,458,'#CCD9E2',width=.7)
-        plot(wav(demo_root/'demo-audio/target_audio.wav'),28,458,645,66,'#EAB779')
-        plot(wav(demo_root/'demo-audio/generated_audio.wav'),28,458,645,66,TEAL)
-        f.txt(350,505,'橙：目标  /  绿：模型输出；这是合成音调，不是自然语音。',13,MUTED,'middle')
+        f.txt(28,432,'归一化幅度',12,MUTED)
+        x0,y0,pw,ph=70,477,600,76
+        for amplitude in [-1,0,1]:
+            yy=y0-amplitude*ph/2
+            f.line(x0,yy,x0+pw,yy,'#CCD9E2',dash=[2,3],width=.7)
+            f.txt(x0-10,yy+4,str(amplitude),12,MUTED,'end')
+        f.line(x0,y0-ph/2-4,x0,y0+ph/2,INK,width=.8)
+        f.line(x0,y0+ph/2,x0+pw,y0+ph/2,INK,width=.8)
+        for sample in [0,64,128,192,255]:
+            xx=x0+sample/255*pw
+            f.line(xx,y0+ph/2,xx,y0+ph/2+4,INK,width=.8)
+            f.txt(xx,535,str(sample),12,MUTED,'middle')
+        plot(wav(demo_root/'demo-audio/target_audio.wav'),x0,y0,pw,ph,ORANGE,dash=[6,4],line_width=1.6)
+        plot(wav(demo_root/'demo-audio/generated_audio.wav'),x0,y0,pw,ph,TEAL,line_width=1.3)
+        f.txt(370,554,'采样索引 s（导出采样率8000 Hz）',12,MUTED,'middle')
+        f.line(185,577,225,577,ORANGE,dash=[6,4],width=1.6)
+        f.txt(235,582,'目标：虚线',13,INK)
+        f.line(399,577,439,577,TEAL,width=1.3)
+        f.txt(449,582,'预测：实线',13,INK)
+        f.txt(350,606,'这是256点合成音调，不是自然语音；两条曲线均来自实际保存的文件。',12,MUTED,'middle')
         out['17-generated']=f.d
     from tensor_figures_core import build as core_tensors
     from tensor_figures_language import build as language_tensors
@@ -374,6 +402,10 @@ def figures():
     out.update(core_tensors(Figure))
     out.update(language_tensors(Figure))
     out.update(multimodal_tensors(Figure))
+    from tensor_figures_print_core import build as print_core
+    from tensor_figures_print_multimodal import build as print_multimodal
+    out.update(print_core(Figure))
+    out.update(print_multimodal(Figure))
     return out
 
 if __name__=='__main__':

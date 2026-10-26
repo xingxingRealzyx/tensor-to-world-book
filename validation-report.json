@@ -1,21 +1,21 @@
 {
-  "edition": "张量块图解修订版 2026-10-26",
+  "edition": "纸面分镜图解版 2026-10-26",
   "title": "从张量到世界：Transformer、语言模型与多模态智能",
   "artifact_checks": {
     "status": "PASS",
-    "pdf_pages": 168,
+    "pdf_pages": 176,
     "main_chapters": 17,
     "appendices": 3,
-    "vector_figures": 50,
+    "vector_figures": 55,
     "chapter_labs": 17,
-    "markdown_characters": 133326,
-    "chinese_characters": 75063,
+    "markdown_characters": 136740,
+    "chinese_characters": 77149,
     "offline_html_anchors_valid": true,
     "external_raster_dependencies": false,
     "pdf_text_on_every_page": true,
-    "visual_qa": "All 168 final pages reviewed in contact sheets; new tensor diagrams and training/deployment pages additionally inspected at reading resolution. Fixed headings separated from following diagrams/tables.",
-    "generated_vector_assets": 55,
-    "new_tensor_cell_figures": 31,
+    "visual_qa": "All pages reviewed in contact sheets. New static storyboards, visibility masks and waveform legend additionally checked at reading resolution and in grayscale. After tightening the final chapter, all changed pages were re-rendered and checked. All storyboard panels and captions stay on one page.",
+    "generated_vector_assets": 60,
+    "new_tensor_cell_figures": 36,
     "offline_html_unique_ids": true
   },
   "execution_environment": {
@@ -391,10 +391,9 @@
     "scope": "18 synthetic semantic combinations, 16x16 images, 256-sample tones, controlled attribute tokens. Results measure new perturbations, not unseen combinations, natural language, natural speech or real photographs."
   },
   "sha256": {
-    "pdf": "33aeff095930ce11d6f90a613c7e1820a17d7e196ca6e1c7f6e8eeedcf8a9c1f",
-    "html": "d31e945e0cb5a81ea91ff6d5e4d4205170d0ff4a82490e474d7e6226dda064ee",
-    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745",
-    "interactive": "0747c4ca94fdff8b8529cad5380087ee4b74f2607a7b94a662c3abb29d875775"
+    "pdf": "509d7ef6aa40e51c580b9a8176d5b4c7bd61278354e88e185f5db41f7ecba070",
+    "html": "7d7c7c49729941f29246bd0b8bebfd38878d3614ba1805c22f1ab2a7ad67a8a4",
+    "tinyomni_checkpoint": "f312b887d96aaee5f870a7a0bcdf0f580ee8ee85c127531baa828f8f25835745"
   },
   "tensor_walkthroughs": {
     "status": "PASS",
@@ -408,7 +407,10 @@
       "head split and exact inverse",
       "LayerNorm row statistics",
       "residual addition",
-      "expanded feedforward"
+      "expanded feedforward",
+      "paper storyboard products and cumulative sums",
+      "patch flattening and projection",
+      "34-slot missing-audio mask and renormalization"
     ],
     "attention_output": [
       [
@@ -430,17 +432,69 @@
       0.4472131482870333,
       1.3416394448610998
     ],
-    "scope": "Hand-sized diagrams and index mappings; no new model training or GPU performance claim."
-  },
-  "interactive_demonstrations": {
-    "status": "PASS",
-    "scenarios": 5,
-    "steps": 24,
-    "automated_check_groups": 8,
-    "command": "node code/verify_tensor_lab.mjs",
-    "browser_qa": "Actual IAB desktop checks of matrix output selection, causal-attention value mixing and TinyOmni missing-audio mask; visual responsive check in a 320px-wide iframe.",
-    "offline": true,
-    "preview": "interactive/preview.png"
+    "paper_storyboards": {
+      "products": [
+        1,
+        0,
+        2,
+        1
+      ],
+      "cumulative_sums": [
+        1,
+        1,
+        3,
+        4
+      ],
+      "patch_rows": [
+        [
+          1,
+          2,
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          13,
+          14
+        ],
+        [
+          11,
+          12,
+          15,
+          16
+        ]
+      ],
+      "projected_patches": [
+        [
+          6,
+          8
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          22,
+          24
+        ],
+        [
+          26,
+          28
+        ]
+      ],
+      "source_slots": 34,
+      "masked_audio_slots": 8,
+      "visible_slots": 26,
+      "uniform_visible_weight": 0.038461538461538464
+    },
+    "scope": "Static paper diagrams and index mappings; no new model training or GPU performance claim."
   },
   "patch_convolution_equivalence": {
     "status": "PASS",
@@ -460,5 +514,23 @@
     "dtype": "float64",
     "scope": "Actual PyTorch Conv2d versus unfold + permute + matrix multiplication."
   },
-  "training_validation_note": "The framework tests, mechanism training runs and TinyOmni checkpoint/results below were verified for the 2026-10-23 edition and retained unchanged. This 2026-10-26 revision adds diagram/interactive verification; no new GPU performance or model-training claim."
+  "training_validation_note": "The framework tests, mechanism training runs and TinyOmni checkpoint/results below were verified for the 2026-10-23 edition and retained unchanged. The paper edition adds static storyboard and print-layout verification; no new GPU performance or model-training claim.",
+  "paper_edition_checks": {
+    "status": "PASS",
+    "static_storyboards": 5,
+    "numbered_steps": 21,
+    "understanding_requires_browser": false,
+    "interactive_files_removed": true,
+    "html_scripts": 0,
+    "html_event_handlers": 0,
+    "grayscale_qa": "Step numbers, indices, borders, read/blocked labels, hatching and solid/dashed waveform styles retain meaning without color.",
+    "storyboard_pages": [
+      16,
+      31,
+      35,
+      118,
+      160
+    ],
+    "trained_checkpoint_unchanged": true
+  }
 }
